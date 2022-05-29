@@ -23,16 +23,17 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
-import Note from "@/components/Notes/Note.vue"
-import AddEditNote from "@/components/Notes/AddEditNote.vue"
-import { useNotesStore } from "@/stores/storeNotes"
+import { ref } from 'vue'
+import Note from '@/components/Notes/Note.vue'
+import AddEditNote from '@/components/Notes/AddEditNote.vue'
+import { useNotesStore } from '@/stores/storeNotes'
+import { useWatchCharacters } from '@/use/useWatchCharacters'
 
 /*
 Store
 */
 
-const notesStore = useNotesStore();
+const notesStore = useNotesStore()
 
 /*
 Notes
@@ -47,7 +48,10 @@ const addNote = () => {
     addEditNoteRef.value.focusTextarea()
 }
 
-onMounted(() => {
-    addEditNoteRef.value.focusTextarea()
-})
+/*
+Watch characters
+*/
+
+useWatchCharacters(newNote)
+
 </script>

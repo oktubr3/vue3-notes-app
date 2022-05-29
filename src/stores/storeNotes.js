@@ -9,15 +9,6 @@ export const useNotesStore = defineStore('notesStore', {
                     id: 'id1',
                     content:
                         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, non quasi et laudantium assumenda sequi ipsam similique, quis tempora amet odit suscipit dolor minus nulla, ratione numquam officiis. Eum, consequatur.",
-                },
-                {
-                    id: 'id2',
-                    content: "A shorter note. Wooo!",
-                },
-                {
-                    id: 'id3',
-                    content:
-                        "Hola Ciro Ignacio, esto es una prueba de una nota muy larga, para ver si se adapta bien a la pantalla. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, non quasi et laudantium assumenda sequi ipsam similique, quis tempora amet odit suscipit dolor minus nulla, ratione numquam officiis. Eum, consequatur.",
                 }
             ],
         }
@@ -49,6 +40,14 @@ export const useNotesStore = defineStore('notesStore', {
             return (id) => {
                 return state.notes.filter( note => note.id === id )[0].content
             }
+        },
+        totalNotes(state) {
+            return state.notes.length
+        },
+        totalCharacters(state) {
+            return state.notes.reduce( (acc, note) => {
+                return acc + note.content.length
+            }, 0)
         }
     }
 })

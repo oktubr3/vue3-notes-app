@@ -10,6 +10,8 @@
                         :placeholder="placeholder"
                         ref="textareaRef"
                         :class="`is-${ textareaColor }`"
+                        v-autofocus
+                        maxlength="140"
                     />
                 </div>
             </div>
@@ -24,6 +26,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import { vAutofocus } from '@/directives/vAutofocus';
 
 /*
 Props
