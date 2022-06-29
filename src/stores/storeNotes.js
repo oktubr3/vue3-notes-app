@@ -4,13 +4,7 @@ import { v4 as uuidv4 } from 'uuid'
 export const useNotesStore = defineStore('notesStore', {
     state: () => {
         return {
-            notes: [
-                {
-                    id: 'id1',
-                    content:
-                        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, non quasi et laudantium assumenda sequi ipsam similique, quis tempora amet odit suscipit dolor minus nulla, ratione numquam officiis. Eum, consequatur.",
-                }
-            ],
+            notes: [],
         }
     },
     actions: {
