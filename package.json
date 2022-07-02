@@ -9,6 +9,7 @@
   "dependencies": {
     "@vueuse/core": "^8.5.0",
     "bulma": "^0.9.4",
+    "firebase": "^9.8.4",
     "pinia": "^2.0.14",
     "uuid": "^8.3.2",
     "vue": "^3.2.33",

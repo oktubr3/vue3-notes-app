@@ -7,10 +7,27 @@
 
 <script setup>
 // Imports
-import Navbar from "@/components/Layout/Navbar.vue";
+import { onMounted } from 'vue';
+import Navbar from '@/components/Layout/Navbar.vue'
+import { useNotesStore } from '@/stores/storeNotes'
+
+/*
+Store notes
+*/
+const storeNotes = useNotesStore()
+
+/*
+On mount
+*/
+onMounted(() => {
+    storeNotes.getNotes()
+})
+
+
 </script>
 
 
 <style>
 @import "bulma/css/bulma.min.css";
+
 </style>
