@@ -1,24 +1,29 @@
 <template>
     <div class="notes">
-        <AddEditNote
-            @keyup.ctrl.enter.prevent="addNote"
-            v-model="newNote"
-            textareaColor="info"
-            ref="addEditNoteRef"
-        >
+        <AddEditNote @keyup.ctrl.enter.prevent="addNote" v-model="newNote" textareaColor="info" ref="addEditNoteRef">
             <template #buttons>
-                <button
-                    :disabled="!newNote"
-                    @click="addNote"
-                    class="button is-link"
-                    ref="newNoteRef"
-                >
+                <button :disabled="!newNote" @click="addNote" class="button is-link" ref="newNoteRef">
                     Add New Note
                 </button>
             </template>
         </AddEditNote>
 
-        <Note v-for="note in notesStore.notes" :key="note.id" :note="note" />
+        <progress v-if="!notesStore.notesLoaded" class="progress is-large is-info" max="100" />
+
+        <template v-else>
+            <Note
+                v-for="note in notesStore.notes"
+                :key="note.id"
+                :note="note"
+            />
+
+            <div
+                v-if="!notesStore.notes.length"
+                class="is-size-4 has-text-centered has-text-grey-light is-family-monospace py-6"
+            >
+                No notes here yet...
+            </div>
+        </template>
     </div>
 </template>
 
